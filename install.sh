@@ -8,7 +8,6 @@ fi
 bash miniconda.sh -b -p $HOME/miniconda
 
 export PATH="$HOME/miniconda/bin:$PATH"
-echo "export PATH=\"\$HOME/miniconda/bin:\$PATH\"" >> ~/.bashrc
 hash -r
 
 conda config --set always_yes yes --set changeps1 no
