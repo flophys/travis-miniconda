@@ -1,10 +1,20 @@
 #!/bin/bash
 
-if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+    infix="Linux"
+elif [ "$TRAVIS_OS_NAME" == "osx" ]; then
+    infix="MacOSX"
 else
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    infix="unknown"
 fi
+
+if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+    url="https://repo.continuum.io/miniconda/Miniconda2-latest-$infix-x86_64.sh"
+else
+    url="https://repo.continuum.io/miniconda/Miniconda3-latest-$infix-x86_64.sh"
+fi
+
+wget $url -O miniconda.sh;
 bash miniconda.sh -b -p $HOME/miniconda
 
 export PATH="$HOME/miniconda/bin:$PATH"
