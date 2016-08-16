@@ -23,7 +23,8 @@ hash -r
 conda config --set always_yes yes --set changeps1 no
 conda update -q conda
 conda info -a
-conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION numba numpy scipy pip sphinx sphinx_rtd_theme pygments pytest psutil
+conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION numba numpy scipy \
+                            pip sphinx sphinx_rtd_theme pygments pytest psutil
 source activate travisci
 conda install --yes -q -c numba llvmdev=3.7.1
 
