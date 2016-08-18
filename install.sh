@@ -14,6 +14,7 @@ else
     url="https://repo.continuum.io/miniconda/Miniconda3-latest-$infix-x86_64.sh"
 fi
 
+deactivate
 pushd .
 cd
 mkdir -p download
@@ -23,13 +24,13 @@ ls -l
 echo
 if [[ ! -f miniconda.sh ]]
 then
-    wget $url -O miniconda.sh
-    chmod +x miniconda.sh
+    wget $url -O "miniconda-$infix.sh"
 fi
-bash miniconda.sh -b -p $HOME/miniconda
+chmod +x miniconda-$infix.sh && ./miniconda-$infix.sh -b -p $HOME/miniconda
+cd ..
+export PATH="$HOME/miniconda/bin:$PATH"
 popd
 
-export PATH="$HOME/miniconda/bin:$PATH"
 hash -r
 
 conda config --set always_yes yes --set changeps1 no
