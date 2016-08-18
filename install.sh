@@ -26,9 +26,9 @@ then
     wget $url -O miniconda.sh
     chmod +x miniconda.sh
 fi
+bash miniconda.sh -b -p $HOME/miniconda
 popd
 
-bash miniconda.sh -b -p $HOME/miniconda
 export PATH="$HOME/miniconda/bin:$PATH"
 hash -r
 
