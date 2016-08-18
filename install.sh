@@ -14,7 +14,6 @@ else
     url="https://repo.continuum.io/miniconda/Miniconda3-latest-$infix-x86_64.sh"
 fi
 
-deactivate
 pushd .
 cd
 mkdir -p download
