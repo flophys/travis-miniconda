@@ -25,10 +25,10 @@ if [[ ! -f miniconda.sh ]]
 then
     wget $url -O miniconda.sh
     chmod +x miniconda.sh
-    bash miniconda.sh -b -p $HOME/miniconda
 fi
 popd
 
+bash miniconda.sh -b -p $HOME/miniconda
 export PATH="$HOME/miniconda/bin:$PATH"
 hash -r
 
