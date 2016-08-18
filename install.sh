@@ -22,7 +22,7 @@ cd download
 echo "Cached in $HOME/download :"
 ls -l
 echo
-if [[ ! -f miniconda.sh ]]
+if [[ ! -f miniconda-$infix.sh ]]
 then
     wget $url -O "miniconda-$infix.sh"
 fi
