@@ -39,7 +39,7 @@ conda update -q conda
 conda info -a
 conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION nomkl numba numpy \
                             scipy pip sphinx sphinx_rtd_theme pygments \
-                            pytest psutil
+                            pytest psutil pandas
 source activate travisci
 conda install --yes -q -c numba llvmdev="3.8*" llvmlite
 
