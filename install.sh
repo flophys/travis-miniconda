@@ -41,7 +41,7 @@ conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION nomkl numba numpy \
                             scipy pip sphinx sphinx_rtd_theme pygments \
                             pytest psutil
 source activate travisci
-conda install --yes -q -c numba llvmdev
+conda install --yes -q -c numba llvmdev="3.8*" llvmlite
 
 if [ $TRAVIS_PYTHON_VERSION \< "3.4" ];
 then
