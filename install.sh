@@ -39,7 +39,8 @@ conda update -q conda
 conda info -a
 conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION nomkl numba numpy \
                             scipy pip sphinx sphinx_rtd_theme pygments \
-                            pytest psutil pandas h5py hdf5
+                            pytest psutil pandas h5py hdf5 matplotlib \
+                            pycparser
 source activate travisci
 conda install --yes -q -c numba llvmdev="3.8*" llvmlite
 
@@ -47,3 +48,10 @@ if [ $TRAVIS_PYTHON_VERSION \< "3.4" ];
 then
     conda install --yes -q enum34;
 fi
+
+if [[ "$TRAVIS_OS_NAME" == "osx" ]];
+then
+    brew upgrade
+    brew install freetype
+fi
+
