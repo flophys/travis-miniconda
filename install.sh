@@ -53,5 +53,8 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]];
 then
     brew upgrade
     brew install freetype
+    mkdir -p $HOME/.matplotlib
+    touch $HOME/.matplotlib/matplotlibrc
+    echo "backend: TkAgg" >> $HOME/.matplotlib/matplotlibrc
 fi
 
