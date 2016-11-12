@@ -43,7 +43,7 @@ conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION nomkl numba numpy \
                             pycparser
 source activate travisci
 conda install --yes -q -c numba llvmdev="3.8*" llvmlite
-pip install pypandoc --upgrade
+conda install --yes -q -c conda-forge pypandoc
 
 if [ $TRAVIS_PYTHON_VERSION \< "3.4" ];
 then
