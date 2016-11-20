@@ -44,16 +44,16 @@ conda info -a
 conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION nomkl numba numpy \
                             scipy pip sphinx sphinx_rtd_theme pygments \
                             pytest psutil pandas h5py hdf5 matplotlib \
-                            pycparser cffi llvmlite enum34
+                            pycparser cffi llvmlite
 source activate travisci
 
 # conda install --yes -q -c numba llvmdev="3.8*" llvmlite
 # conda install --yes -q -c conda-forge pypandoc
 
-# if [ $TRAVIS_PYTHON_VERSION \< "3.4" ];
-# then
-#     conda install --yes -q enum34;
-# fi
+if [ $TRAVIS_PYTHON_VERSION \< "3.4" ];
+then
+    conda install --yes -q enum34;
+fi
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]];
 then
