@@ -53,19 +53,11 @@ conda create -q -n travisci python=$TRAVIS_PYTHON_VERSION nomkl numba numpy \
 source activate travisci
 
 # conda install --yes -q -c numba llvmdev="3.8*" llvmlite
-conda install --yes -q -c conda-forge pypandoc
+# conda install --yes -q -c conda-forge pypandoc
 
 if [ $TRAVIS_PYTHON_VERSION \< "3.4" ];
 then
     conda install --yes -q enum34;
 fi
 
-if [[ "$TRAVIS_OS_NAME" == "osx" ]];
-then
-    brew upgrade
-    brew install freetype
-    mkdir -p $HOME/.matplotlib
-    touch $HOME/.matplotlib/matplotlibrc
-    echo "backend: TkAgg" >> $HOME/.matplotlib/matplotlibrc
-    brew install pandoc
-fi
+
